@@ -14,11 +14,9 @@ export const MyPost = () => {
             <button>Add Post</button>
 
             <div className={s.posts}>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post  message = 'Hi,how are you?'/>
+                <Post message = 'First post?'/>
+
             </div>
         </div>
 
