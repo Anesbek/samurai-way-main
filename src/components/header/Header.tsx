@@ -2,7 +2,7 @@ import React from "react";
 import App from "../../App";
 import s from './Header.module.css';
 
- const Headere = () => {
+ const Header = () => {
     return (
         <div>
             <header className={s.header}>
@@ -13,4 +13,4 @@ import s from './Header.module.css';
     )
 }
 
-export default Headere;
+export default Header;

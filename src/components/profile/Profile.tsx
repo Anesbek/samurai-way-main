@@ -5,7 +5,7 @@ import {MyPost} from "./mypost/MyPost";
 
 export const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img src="https://assets.turbologo.ru/blog/ru/2021/10/30071021/background4.png" alt=""/>
             </div>
