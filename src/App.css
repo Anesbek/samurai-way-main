@@ -13,12 +13,11 @@
 .app-wpapper-content {
     grid-area: content;
     background-color: #d07407;
-
 }
 
 .app-wpapper-content img {
     width: 100%;
-    height: 120px;
+    height: 740px;
     object-fit: cover;
 }
 
