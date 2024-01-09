@@ -5,13 +5,18 @@ import s from './MyPost.module.css';
 export const MyPost = () => {
     return (
 
-        <div>
-            My Posts
+        <div className={s.postBlock}>
+            <h3>My Posts</h3>
             <div>
-                New Post
+                <div>
+                    <textarea name=""></textarea>
+                </div>
+                    <div>
+                        <button>Add Post</button>
+                    </div>
+
             </div>
-            <textarea name=""></textarea>
-            <button>Add Post</button>
+
 
             <div className={s.posts}>
                 <Post  message = 'Hi,how are you?' likesCount = '0'/>
