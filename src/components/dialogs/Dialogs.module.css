@@ -5,6 +5,7 @@ display: grid;
 
 .dialogsItems  {
 padding: 10px;
+    color: wheat;
 }
 .dialogsItems .active {
     color: gold;
@@ -15,5 +16,5 @@ padding: 10px;
 }
 
 .messeges.messeg{
-
+color:wheat;
 }
