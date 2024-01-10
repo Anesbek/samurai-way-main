@@ -11,18 +11,24 @@ import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
 
-const App = () => {
+const App = (props:any) => {
     return (
         <BrowserRouter>
             <div className="app-wpapper">
                 <Header/>
                 <Navbar/>
                 <div className="app-wpapper-content">
-                    <Route path="/dialogs" component={Dialogs}/>
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/news' component={News}/>
-                    <Route path='/musıc' component={Music}/>
-                    <Route path='/settings' component={Settings}/>
+                    {/*<Route path="/dialogs" component={Dialogs}/>*/}
+                    {/*<Route path='/profile' component={Profile}/>*/}
+                    {/*<Route path='/news' component={News}/>*/}
+                    {/*<Route path='/musıc' component={Music}/>*/}
+                    {/*<Route path='/settings' component={Settings}/>*/}
+
+
+
+                    <Route path="/dialogs" render={()=><Dialogs />}/>
+                    <Route path="/profile" render={()=><Profile/>}/>
+
 
                 </div>
             </div>
