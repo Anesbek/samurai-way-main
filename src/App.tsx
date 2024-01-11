@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
-// import {Header} from "antd/es/layout/layout";
+
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
 import Header from "./components/header/Header";
 import Dialogs from "./components/dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import News from "./components/news/News";
-import Music from "./components/music/Music";
-import Settings from "./components/settings/Settings";
+
 
 
 const App = (props:any) => {
+
+
+
     return (
         <BrowserRouter>
             <div className="app-wpapper">
@@ -24,11 +25,8 @@ const App = (props:any) => {
                     {/*<Route path='/musıc' component={Music}/>*/}
                     {/*<Route path='/settings' component={Settings}/>*/}
 
-
-
-                    <Route path="/dialogs" render={()=><Dialogs />}/>
-                    <Route path="/profile" render={()=><Profile/>}/>
-
+                    <Route path="/dialogs" render={()=><Dialogs dialogs = {props.dialogs} messeges ={props.messeges} />}/>
+                    <Route path="/profile" render={()=><Profile posts = {props.posts}/>}/>
 
                 </div>
             </div>
