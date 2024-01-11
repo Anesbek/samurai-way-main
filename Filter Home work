@@ -1,0 +1,100 @@
+import React, {useState} from 'react';
+import './App.css';
+import {NewComponent} from "./NewComponent";
+
+export type MoneyType ={ banknote: FilterType, nominal: number, number: string }
+
+export  type FilterType='all'| 'Dollars' | 'RUBLS'
+
+function App() {
+    const  [money, setMoney] = useState<MoneyType[]>([
+        { banknote: 'Dollars', nominal: 100, number: ' a1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' z1234567890' },
+        { banknote: 'RUBLS', nominal: 100, number: ' w1234567890' },
+        { banknote: 'Dollars', nominal: 100, number: ' e1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' c1234567890' },
+        { banknote: 'RUBLS', nominal: 100, number: ' r1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' x1234567890' },
+        { banknote: 'RUBLS', nominal: 50, number: ' v1234567890' },
+    ])
+
+
+    const [filter, setFilter]=useState<FilterType>('all')
+
+    let currentMoney= money;
+    if (filter==='Dollars'){
+        currentMoney=money.filter((filteredMoney)=>filteredMoney.banknote==='Dollars')
+    }
+    if (filter==='RUBLS'){
+        currentMoney=money.filter((filteredMoney)=>filteredMoney.banknote==='RUBLS')
+    }
+
+
+    const onClickFilterHandler=(nameButton: FilterType)=>{
+        setFilter(nameButton)
+
+    }
+    const Button1 =()=>{
+
+    }
+
+    return (
+        <>
+          <NewComponent currentMoney={currentMoney} callBack={setFilter}/>
+        </>
+
+
+
+    );
+}
+
+export default App;
+/////////////////////////---------------------------------------------------------------------------------------------------------*///////////////////
+
+
+import React from 'react';
+import {FilterType, MoneyType} from "./App";
+
+
+
+type ButtonType={
+    callBack:(filter: FilterType)=>void
+    currentMoney: MoneyType[]
+}
+
+// type MonType ={
+//     banknote: string
+//     nominal: number
+//     number: number
+//
+// }
+
+export const NewComponent = (props: ButtonType ) => {
+
+    const onClickFilterHandler=(filter: FilterType)=>{
+        props.callBack(filter)
+    }
+
+
+    return (
+        <div>
+            <ul>
+                {props.currentMoney.map((objFromMoneyArr, index)=>{
+                    return(
+                        <li key={index}>
+                            <span>{objFromMoneyArr.banknote}</span>
+                            <span>{objFromMoneyArr.nominal}</span>
+                            <span>{objFromMoneyArr.number}</span>
+                        </li>
+                    )
+                })}
+            </ul>
+            <div style={{marginLeft: "35px"}}>
+                <button onClick={()=>onClickFilterHandler('all')}>all</button>
+                <button onClick={()=>onClickFilterHandler ('RUBLS')}>rubel</button>
+                <button onClick={()=>onClickFilterHandler ('Dollars')}>dollar</button>
+            </div>
+        </div>
+    );
+};
+
